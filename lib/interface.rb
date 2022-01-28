@@ -5,7 +5,7 @@ puts 'Please enter the name of the location you wish to filter by'
 puts '*****************************************************'
 
 filepath = 'data/example.json'
-location = gets.chomp
+location = gets.chomp.strip
 talent_list = filter_talent(location, filepath)
 
 if talent_list.empty?
