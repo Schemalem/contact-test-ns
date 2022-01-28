@@ -12,7 +12,5 @@ if talent_list.empty?
   puts "No talent found in #{location}"
 else
   puts "We've found the following talent in #{location}:"
-  talent_list.each do |talent|
-    puts talent['name']
-  end
+  name_drop(talent_list)
 end

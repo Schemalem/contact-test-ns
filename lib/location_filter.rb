@@ -27,5 +27,9 @@ def location_filter(talent_array, location)
   talent_with_location
 end
 
-# Need to do accompanying "READ ME" docs
-# Do some rspec tests
+# Method to iterate over final talent list and generates just names for the interface
+def name_drop(talent_list)
+  talent_list.each do |talent|
+    puts talent['name']
+  end
+end
