@@ -1,4 +1,5 @@
 require 'json'
+require 'date'
 
 # Method that takes paramaters for chosen location and the parsed JSON file path
 def filter_talent(location, filepath)
@@ -33,3 +34,43 @@ def name_drop(talent_list)
     puts talent['name']
   end
 end
+
+# one age that we take from the interface, 65
+# work out how old each talent are - date today - date of birth
+# iterate through the array of hashes, if the talent matches that age
+
+
+# age would figure out how old talent is
+def age(day, month, year)
+  age_in_days = (Date.today - Date.new(year, month, day)).to_i
+  # age_in_years = age_in_days.to_f/365
+  age_in_years = age_in_days/365
+  return age_in_years
+end
+
+# puts age(17, 07, 1993)
+#
+def age_filter(age, filepath)
+  talent_array = parse_json(filepath)
+  talent_age_match = talent_array.select do |talent|
+    dob_array = talent['date_of_birth'].split('-')
+    year = dob_array[0].to_i
+    month = dob_array[1].to_i
+    day = dob_array[2].to_i
+    talent_age = age(day, month, year)
+    talent_age == age
+  end
+  return talent_age_match
+end
+
+
+puts age_filter(65, "data/example.json")
+# age_range_filter would figure out if talent was within range
+# def age
+# def age_range(min, max, talent_array)
+  # talent_within_age = talent_array.select do |talent|
+  #     # age = age(talent['date_of_birth']) # works out age of talent
+  #     # Check if the age is within range
+  #     age >= min && age <= max ? true : false
+  # end
+# end

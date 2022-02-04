@@ -14,3 +14,6 @@ else
   puts "We've found the following talent in #{location}:"
   name_drop(talent_list)
 end
+
+# We could give the user a choice to filter by location or age
+# If by age, we'd ask for range (min and max)
