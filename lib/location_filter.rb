@@ -39,7 +39,6 @@ end
 # work out how old each talent are - date today - date of birth
 # iterate through the array of hashes, if the talent matches that age
 
-
 # age would figure out how old talent is
 def age(day, month, year)
   age_in_days = (Date.today - Date.new(year, month, day)).to_i
@@ -48,8 +47,7 @@ def age(day, month, year)
   return age_in_years
 end
 
-# puts age(17, 07, 1993)
-#
+# age_filter iterates through original json file and finds talent that match the age
 def age_filter(age, filepath)
   talent_array = parse_json(filepath)
   talent_age_match = talent_array.select do |talent|
@@ -65,6 +63,7 @@ end
 
 
 puts age_filter(65, "data/example.json")
+
 # age_range_filter would figure out if talent was within range
 # def age
 # def age_range(min, max, talent_array)
